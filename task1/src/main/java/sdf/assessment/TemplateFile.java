@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -79,20 +80,23 @@ public class TemplateFile {
 
 
 
-    public void writefile(ArrayList<String> tempArray, int number){      
+    public void writefile(ArrayList<String> tempArray, int number, String filename){      
             try {
             
                 Path path = Paths.get("output");
                 Files.createDirectories(path);
-                String saveLocation = "output"+ File.separator+ "file"+ number + ".txt";
+                String saveLocation = "output"+ File.separator+ filename + number + ".txt";
                 File file = new File(saveLocation);
                 PrintWriter printWriter = new PrintWriter(file);
                 BufferedWriter bw = new BufferedWriter(printWriter);
 
 
             for (String line:tempArray){
-                bw.write(line+"\n");
-                System.out.println(line);
+  
+                bw.write(line);
+                bw.write("\n");
+                bw.write("\n");
+   
             }
 
             bw.flush();

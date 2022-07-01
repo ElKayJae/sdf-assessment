@@ -16,6 +16,8 @@ public class App
             txtFilePathString = args[1];
         }
 
+        String filename = csvFilePathString.replace(".csv", "");
+
         System.out.println( "Hello World!1" );
         CsvFile csvFile = new CsvFile(csvFilePathString);
         csvFile.readCSV();
@@ -27,7 +29,7 @@ public class App
 
         for (int rows = 1; rows< csvArray.size(); rows++){
             
-            System.out.println("new line_______________________________");
+            // System.out.println("new line_______________________________");
             ArrayList<String> tempArray = new ArrayList<>();
             for (String line: templateArray){
                 for (int j = 0; j < variableList.size(); j++) {
@@ -39,7 +41,7 @@ public class App
                 
             }
             tempArray.forEach( newline -> System.out.println(newline));
-            templateFile.writefile(tempArray, rows);
+            templateFile.writefile(tempArray, rows, filename);
         }
 
         
