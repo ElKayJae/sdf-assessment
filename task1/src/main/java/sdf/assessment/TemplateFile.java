@@ -8,7 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.time.format.TextStyle;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,8 +32,7 @@ public class TemplateFile {
         this.csvFile = new CsvFile(csvFilePathString);
         this.csvFileOutput = csvFile.readCSV();
         this.templateFileOutput = readTxt();
-        // for(String line:templateFileOutput)
-        // System.out.println(line);
+
     }
     
     public ArrayList<String> readTxt(){
@@ -51,7 +52,6 @@ public class TemplateFile {
     }
 
     public ArrayList<String> getVariableName(){
-        //for each line
         try{
             File file = new File(this.txtFilePathString);
             FileInputStream fis = new FileInputStream(file);
@@ -77,41 +77,17 @@ public class TemplateFile {
         variableList.forEach(variable -> System.out.println(variable));
     }
 
-    // public void replaceVariables(){
-    //     System.out.println("test");
-    //     System.out.println(csvFile.fileOutput.size());
 
-    //     //for each row of csv file
-    //     for (int index = 1; index < csvFile.fileOutput.size()-1; index++) {
-    //         System.out.println("test");
-    //         //for each line of the template
-    //         for (String line:this.templateFileOutput){
-    //             System.out.println(line);
-    //             //for each variable
-    //             for(String variable:variableList){
-    //                 if (line.contains(variable)){
-    //                     System.out.println(line);
-    //                     System.out.println(variable);
-    //                     line = line.replace(variable, csvFile.getFiller(csvFile.getVariableIndex(variable), index));
-    //                     System.out.println(line);
-    //                 }
-    //             }
 
-    //         }
-    //     }
-    // }
-
-    
-
-    public void writefile(ArrayList<String> tempArray, int number){
-
-        //define new file object same as above step in load function
-        String saveLocation = "file"+ number + ".txt";
-        File file = new File(saveLocation);
-    
-        try {
-            PrintWriter printWriter = new PrintWriter(file);
-            BufferedWriter bw = new BufferedWriter(printWriter);
+    public void writefile(ArrayList<String> tempArray, int number){      
+            try {
+            
+                Path path = Paths.get("output");
+                Files.createDirectories(path);
+                String saveLocation = "output"+ File.separator+ "file"+ number + ".txt";
+                File file = new File(saveLocation);
+                PrintWriter printWriter = new PrintWriter(file);
+                BufferedWriter bw = new BufferedWriter(printWriter);
 
 
             for (String line:tempArray){

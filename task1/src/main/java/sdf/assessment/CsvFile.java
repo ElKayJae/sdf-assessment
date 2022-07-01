@@ -43,8 +43,6 @@ public class CsvFile {
         int index=0;
             for (int i = 0; i < header.length; i++) {
                 if (variable.contains(header[i])){
-                    // System.out.println("header: " +header[i]);
-                    // System.out.println(i);
                     index = i;
                     }
                 }

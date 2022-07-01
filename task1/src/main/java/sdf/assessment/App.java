@@ -20,7 +20,6 @@ public class App
         CsvFile csvFile = new CsvFile(csvFilePathString);
         csvFile.readCSV();
         TemplateFile templateFile = new TemplateFile(txtFilePathString,csvFilePathString);
-        // templateFile.readTxt();
         ArrayList<String> variableList = templateFile.getVariableName();
         templateFile.printVariables();
         ArrayList<String> templateArray = templateFile.templateFileOutput;
