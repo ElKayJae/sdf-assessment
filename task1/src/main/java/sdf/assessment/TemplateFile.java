@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -92,13 +91,9 @@ public class TemplateFile {
 
 
             for (String line:tempArray){
-  
                 bw.write(line);
-                bw.write("\n");
-                bw.write("\n");
-   
+                bw.write("\n");   
             }
-
             bw.flush();
             bw.close();
             printWriter.close();
