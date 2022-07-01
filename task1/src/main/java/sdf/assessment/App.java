@@ -10,7 +10,7 @@ public class App
     // mvn compile exec:java -Dexec.mainClass="sdf.assessment.App" -Dexec.args=""
     // java -jar target/task1-1.0-SNAPSHOT.jar
     public static void main( String[] args ){
-
+        
         for (int i = 0; i < args.length; i++) {
             csvFilePathString = args[0];
             txtFilePathString = args[1];
