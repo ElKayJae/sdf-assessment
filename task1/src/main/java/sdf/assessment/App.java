@@ -10,7 +10,7 @@ public class App
     // mvn compile exec:java -Dexec.mainClass="sdf.assessment.App" -Dexec.args=""
     // java -jar target/task1-1.0-SNAPSHOT.jar
     public static void main( String[] args ){
-        
+
         for (int i = 0; i < args.length; i++) {
             csvFilePathString = args[0];
             txtFilePathString = args[1];
@@ -28,8 +28,6 @@ public class App
         ArrayList<String[]> csvArray = csvFile.fileOutput;
 
         for (int rows = 1; rows< csvArray.size(); rows++){
-            
-            // System.out.println("new line_______________________________");
             ArrayList<String> tempArray = new ArrayList<>();
             for (String line: templateArray){
                 for (int j = 0; j < variableList.size(); j++) {
